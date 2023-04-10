@@ -1,3 +1,9 @@
+/*
+ * Author : Ismail Ash Shidiq (https://eulbyvan.netlify.app)
+ * Created on : Mon Apr 10 2023 11:25:14 AM
+ * Copyright : Ismail Ash Shidiq © 2023. All rights reserved
+ */
+
 package repository
 
 import "github.com/eulbyvan/app-mahasiswa/entity"
