@@ -9,6 +9,7 @@ package usecase
 import (
 	"github.com/eulbyvan/app-mahasiswa/entity"
 	"github.com/eulbyvan/app-mahasiswa/repository"
+	"github.com/eulbyvan/app-mahasiswa/validation"
 )
 
 type StudentUsecase interface {
@@ -35,6 +36,16 @@ func (u *studentUsecase) FindById(id int) entity.Student {
 
 func (u *studentUsecase) Register(newStudent entity.Student) string {
 	// business logic, contoh: umur minimal 17 tahun
+	err := validation.ValidateStudent(newStudent)
+
+	if len(u.studentRepo.GetAll()) >= 10 {
+		return "maximum number of students reached"
+	}
+
+	if err != nil {
+		return err.Error()
+	}
+	
 	return u.studentRepo.Create(newStudent)
 }
 
